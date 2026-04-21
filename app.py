@@ -58,6 +58,11 @@ with tab1:
 
 with tab2:
     st.subheader("Dataset Insights and values")
+    st.caption(
+    "This dashboard uses a customer dataset (source: Kaggle) to explore patterns linked to customers leaving. "
+    "The charts below summarize what the data suggests."
+)
+
     st.write("churn: percentage of customers who discontinue their relationship with a company within a given time frame")
 
     col1, col2 = st.columns(2)
@@ -85,7 +90,12 @@ with tab2:
     )
 
 with tab3:
-    st.subheader("What Affects this Most?")
+    st.subheader("What Affects churn the Most?")
+    st.caption(
+    "These insights come from the trained machine learning model. "
+    "Feature importance shows which inputs the model relied on most when making predictions."
+)
+
 
     feature_names = model.named_steps["preprocessor"].get_feature_names_out()
     importances = model.named_steps["classifier"].feature_importances_
